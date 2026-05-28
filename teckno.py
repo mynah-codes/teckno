@@ -1,9 +1,6 @@
 import pandas as pd
 import matplotlib.pyplot as plt
 
-## DATA PREPARATION
-print("\n** DATA PREPARATION **")
-
 # Sample data for purchasing habits and online presence of Gen Z in Ireland
 purchasing_data = {
     "row_1": ["John", "15", "Male", "Cork", ("Video Games", "Runners"), ("Youtube", "TikTok")],
@@ -22,24 +19,40 @@ df = pd.DataFrame(purchasing_data).T # Create a DataFrame from the purchasing da
 df.columns = ["Name", "Age", "Gender", "Location", "Social Media Purchases", "Online Presence"] # Rename the columns for better readability
 print(df) # Display the DataFrame
 
-## PRODUCT CATEGORY ANALYSIS
-print("\n** PRODUCT PURCHASE ANALYSIS**")
-
 # Count the frequency of each product category in the purchasing habits
-product_purchases = [] # Initialize an empty list to store product purchase types
+product_categories = [] # Initialize an empty list to store product categories
 for purchases in df["Social Media Purchases"]: # For loop iterates over the "Social Media Purchases" column in the DataFrame, where each entry is a tuple of product categories.
-    product_purchases.extend(purchases) # The extend() method is used to add the elements of the purchases tuple to the product_categories list, effectively flattening the list of categories.
+    product_categories.extend(purchases) # The extend() method is used to add the elements of the purchases tuple to the product_categories list, effectively flattening the list of categories.
 
-print(f"\nAll Product Categories Purchased: {product_purchases}") # Print the list of all product categories purchased by the respondents
+print(f"\nAll Product Categories Purchased: {product_categories}") # Print the list of all product categories purchased by the respondents
 
 # Create a Pandas Series from the product_categories list and use the value_counts() method to count the frequency of each unique product category.
-purchase_categories = pd.Series(product_purchases) # Create a Pandas Series from the product_categories list
-print(f"\nUnique Product Categories: {purchase_categories.unique()}") # Print the unique product categories
+categories = pd.Series(product_categories) # Create a Pandas Series from the product_categories list
+print(f"\nUnique Product Categories: {categories.unique()}") # Print the unique product categories
 
-purchase_category_counts = purchase_categories.value_counts() # The result is stored in the category_counts variable, which is a Series where the index represents the unique product categories and the values represent their respective counts.
+category_counts = categories.value_counts() # The result is stored in the category_counts variable, which is a Series where the index represents the unique product categories and the values represent their respective counts.
 print("\nProduct Category Counts:")
-print(purchase_category_counts)
+print(category_counts)
 
 # Create a bar chart to visualize the product category counts
-purchase_category_counts.plot.bar()
+category_counts.plot.bar()
 plt.show()
+
+## EXERCISES: DO SIMILAR ANALYSIS, COUNTING UP NUMBERS FOR AGE GROUPS, COUNTIES, SOCIAL MEDIA PLATFORMS
+## AGE GROUP ANALYSIS
+print("\n** AGE GROUP ANALYSIS **")
+
+df["Age"] = df["Age"].astype(int) # Convert the "Age" column to integers for easier analysis
+# ...rest of the code
+
+## COUNTY ANALYSIS
+print("\n** COUNTY ANALYSIS **")
+# ...rest of the code
+
+## SOCIAL MEDIA ANALYSIS
+print("\n** SOCIAL MEDIA ANALYSIS **")
+# ...rest of the code
+
+## DUBLIN SPECIFIC ANALYSIS: COUNTS OF PURCHASES MADE BY PEOPLE IN DUBLIN ONLY
+print("\n** DUBLIN SPECIFIC PURCHASE ANALYSIS **")
+# ...rest of the code
