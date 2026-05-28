@@ -35,11 +35,5 @@ print("\nProduct Category Counts:")
 print(category_counts)
 
 # Create a bar chart to visualize the product category counts
-plt.figure(figsize=(10, 6))
-category_counts.plot(kind='bar', color='skyblue')
-plt.title('Product Category Counts among Gen Z in Ireland')
-plt.xlabel('Product Category')
-plt.ylabel('Count')
-plt.xticks(rotation=45)
-plt.tight_layout()
+category_counts.plot.bar()
 plt.show()
