@@ -95,7 +95,7 @@ print(f"\nSocial Media Platform Counts:\n{social_media_counts}") # Print the cou
 social_media_counts.plot.bar()
 plt.show()
 
-## DUBLIN SPECIFIC ANALYSIS
+## DUBLIN SPECIFIC ANALYSIS: COUNTS OF PURCHASES MADE BY PEOPLE IN DUBLIN ONLY
 print("\n** DUBLIN SPECIFIC PURCHASE ANALYSIS **")
 
 # Now count highest purchase counts from people only in Dublin, first by getting all the people only in Dublin
