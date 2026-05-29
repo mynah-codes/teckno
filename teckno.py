@@ -1,5 +1,6 @@
 import pandas as pd
 import matplotlib.pyplot as plt
+from ast import literal_eval
 
 ## DATA PREPARATION
 print("** DATA PREPARATION **\n")
@@ -28,6 +29,8 @@ print(df) # Display the DataFrame
 # Count the frequency of each product category in the purchasing habits
 product_categories = [] # Initialize an empty list to store product categories
 for purchases in df["Social Media Purchases"]: # For loop iterates over the "Social Media Purchases" column in the DataFrame, where each entry is a tuple of product categories.
+    if isinstance(purchases, str): # This if case handles converting string literal tuples in csv data import, instead of using dictionary
+        purchases = literal_eval(purchases)
     product_categories.extend(purchases) # The extend() method is used to add the elements of the purchases tuple to the product_categories list, effectively flattening the list of categories.
 
 print(f"\nAll Product Categories Purchased: {product_categories}") # Print the list of all product categories purchased by the respondents
