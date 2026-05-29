@@ -5,7 +5,6 @@ import matplotlib.pyplot as plt
 print("** DATA PREPARATION **\n")
 
 # Sample data for purchasing habits and online presence of Gen Z in Ireland
-# ALTERNATIVE TO DATA UPLOAD: purchasing_data = pd.read_csv("https://raw.githubusercontent.com/mynah-codes/teckno/main/purchasing_data.csv")
 purchasing_data = {
     "row_1": ["John", "15", "Male", "Cork", ("Video Games", "Runners"), ("Youtube", "TikTok")],
     "row_2": ["Alison", "35", "Female", "Dublin", ("Skincare", "Loungewear"), ("Instagram", "Email")],
@@ -21,6 +20,9 @@ purchasing_data = {
 
 df = pd.DataFrame(purchasing_data).T # Create a DataFrame from the purchasing data
 df.columns = ["Name", "Age", "Gender", "Location", "Social Media Purchases", "Online Presence"] # Rename the columns for better readability
+
+# ALTERNATIVE TO DATA UPLOAD: delete the lines above, and uncomment line below
+# df = pd.read_csv("https://raw.githubusercontent.com/mynah-codes/teckno/main/purchasing_data.csv")
 print(df) # Display the DataFrame
 
 # Count the frequency of each product category in the purchasing habits
