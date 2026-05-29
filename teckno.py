@@ -26,25 +26,28 @@ df.columns = ["Name", "Age", "Gender", "Location", "Social Media Purchases", "On
 # df = pd.read_csv("https://raw.githubusercontent.com/mynah-codes/teckno/main/purchasing_data.csv")
 print(df) # Display the DataFrame
 
+## PRODUCT CATEGORY ANALYSIS
+print("\n** PRODUCT PURCHASE ANALYSIS**")
+
 # Count the frequency of each product category in the purchasing habits
-product_categories = [] # Initialize an empty list to store product categories
+product_purchases = [] # Initialize an empty list to store product purchase types
 for purchases in df["Social Media Purchases"]: # For loop iterates over the "Social Media Purchases" column in the DataFrame, where each entry is a tuple of product categories.
     if isinstance(purchases, str): # This if case handles converting string literal tuples in csv data import, instead of using dictionary
         purchases = literal_eval(purchases)
-    product_categories.extend(purchases) # The extend() method is used to add the elements of the purchases tuple to the product_categories list, effectively flattening the list of categories.
+    product_purchases.extend(purchases) # The extend() method is used to add the elements of the purchases tuple to the product_categories list, effectively flattening the list of categories.
 
-print(f"\nAll Product Categories Purchased: {product_categories}") # Print the list of all product categories purchased by the respondents
+print(f"\nAll Product Categories Purchased: {product_purchases}") # Print the list of all product categories purchased by the respondents
 
 # Create a Pandas Series from the product_categories list and use the value_counts() method to count the frequency of each unique product category.
-categories = pd.Series(product_categories) # Create a Pandas Series from the product_categories list
-print(f"\nUnique Product Categories: {categories.unique()}") # Print the unique product categories
+purchase_categories = pd.Series(product_purchases) # Create a Pandas Series from the product_categories list
+print(f"\nUnique Product Categories: {purchase_categories.unique()}") # Print the unique product categories
 
-category_counts = categories.value_counts() # The result is stored in the category_counts variable, which is a Series where the index represents the unique product categories and the values represent their respective counts.
+purchase_category_counts = purchase_categories.value_counts() # The result is stored in the category_counts variable, which is a Series where the index represents the unique product categories and the values represent their respective counts.
 print("\nProduct Category Counts:")
-print(category_counts)
+print(purchase_category_counts)
 
 # Create a bar chart to visualize the product category counts
-category_counts.plot.bar()
+purchase_category_counts.plot.bar()
 plt.show()
 
 ## EXERCISES: DO SIMILAR ANALYSIS, COUNTING UP NUMBERS FOR AGE GROUPS, COUNTIES, SOCIAL MEDIA PLATFORMS
