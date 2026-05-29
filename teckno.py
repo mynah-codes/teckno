@@ -1,7 +1,11 @@
 import pandas as pd
 import matplotlib.pyplot as plt
 
+## DATA PREPARATION
+print("** DATA PREPARATION **\n")
+
 # Sample data for purchasing habits and online presence of Gen Z in Ireland
+# ALTERNATIVE TO DATA UPLOAD: purchasing_data = pd.read_csv("https://raw.githubusercontent.com/mynah-codes/teckno/main/purchasing_data.csv")
 purchasing_data = {
     "row_1": ["John", "15", "Male", "Cork", ("Video Games", "Runners"), ("Youtube", "TikTok")],
     "row_2": ["Alison", "35", "Female", "Dublin", ("Skincare", "Loungewear"), ("Instagram", "Email")],
